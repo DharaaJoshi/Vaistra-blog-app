@@ -1,0 +1,94 @@
+<changelist name="Uncommitted_changes_before_Merge_at_29-08-2023_06_03_pm_[Changes]" date="1693312404839" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_29-08-2023_06_03_pm_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Merge at 29-08-2023 06:03 pm [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$5.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$6.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/CategoryServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/TagServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$7.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$8.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/CommentServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/EmailServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/UserServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/test-classes/com/vaistra/VaistraBlogAppApplicationTests.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$2.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/PostServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$3.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$9.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/VaistraBlogAppApplication.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$4.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>

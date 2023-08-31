@@ -1,0 +1,129 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]" date="1693311316367" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 29-08-2023 05:45 pm [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$6.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/UserController.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/UserController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/UserController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$2.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/VaistraBlogAppApplication.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/CategoryService.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/CategoryService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/CategoryService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/CategoryController.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/CategoryController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/CategoryController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$5.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/CategoryServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/CommentServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$1.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/repositories/TagRepository.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/repositories/TagRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/TagRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/TagController.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/TagController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/TagController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$8.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/test-classes/com/vaistra/VaistraBlogAppApplicationTests.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/PostServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/repositories/CategoryRepository.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/repositories/CategoryRepository.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/CategoryRepository.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$4.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/EmailServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/UserServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$9.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$7.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/utils/AppUtils$3.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/TagService.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/TagService.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29-08-2023_05_45_pm_[Changes]/TagService.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/services/impl/TagServiceImpl.class" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+</changelist>

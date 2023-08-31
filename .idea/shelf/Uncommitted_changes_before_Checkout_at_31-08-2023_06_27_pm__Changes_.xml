@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_31-08-2023_06_27_pm_[Changes]" date="1693486646691" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_31-08-2023_06_27_pm_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 31-08-2023 06:27 pm [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/UserController.class" />
+    <option name="AFTER_PATH" value="vaistra-blog-app/target/classes/com/vaistra/controller/UserController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_31-08-2023_06_27_pm_[Changes]/UserController.class" />
+  </binary>
+</changelist>

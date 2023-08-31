@@ -1,0 +1,107 @@
+Index: vaistra-blog-app/src/main/java/com/vaistra/services/impl/TagServiceImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.vaistra.services.impl;\r\n\r\nimport com.vaistra.dto.CategoryDTO;\r\nimport com.vaistra.dto.TagDTO;\r\nimport com.vaistra.entities.Category;\r\nimport com.vaistra.entities.Tag;\r\nimport com.vaistra.exception.DuplicateEntryException;\r\nimport com.vaistra.exception.ResourceNotFoundException;\r\nimport com.vaistra.repositories.TagRepository;\r\nimport com.vaistra.services.TagService;\r\nimport com.vaistra.utils.AppUtils;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.data.domain.Page;\r\nimport org.springframework.data.domain.PageRequest;\r\nimport org.springframework.data.domain.Pageable;\r\nimport org.springframework.data.domain.Sort;\r\nimport org.springframework.stereotype.Service;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Date;\r\nimport java.util.List;\r\n\r\n@Service\r\npublic class TagServiceImpl implements TagService {\r\n\r\n    @Autowired\r\n    TagRepository tagRepository;\r\n\r\n    @Override\r\n    public TagDTO addTag(TagDTO tagDTO) {\r\n        Tag t = tagRepository.findByTagName(tagDTO.getTagName());\r\n\r\n        if (t != null)\r\n            throw new DuplicateEntryException(\"Tag name: \" + t.getTagName() + \" already exist..!\");\r\n\r\n        tagDTO.setTagName(tagDTO.getTagName().toUpperCase());\r\n        tagDTO.setTagDescription(tagDTO.getTagDescription());\r\n\r\n        return AppUtils.tagToDto(tagRepository.save(AppUtils.dtoToTag(tagDTO)));\r\n    }\r\n\r\n    @Override\r\n    public TagDTO getTagById(int id) {\r\n\r\n        Tag t = tagRepository.findByIdNotTrashed(id);\r\n        if (t == null)\r\n            throw new ResourceNotFoundException(\"Tag with id '\" + id + \"' Not Found!\");\r\n        else\r\n            return AppUtils.tagToDto(t);\r\n    }\r\n\r\n    @Override\r\n    public TagDTO getTagByIdTrashed(int id) {\r\n        Tag t = tagRepository.findByIdTrashed(id);\r\n        if (t == null)\r\n            throw new ResourceNotFoundException(\"Tag with id '\" + id + \"' Not Found!\");\r\n        else\r\n            return AppUtils.tagToDto(t);\r\n    }\r\n\r\n    @Override\r\n    public TagDTO getTagByIdInActive(int id) {\r\n\r\n        Tag t = tagRepository.findByIdInActive(id);\r\n        if (t == null)\r\n            throw new ResourceNotFoundException(\"Category with id '\" + id + \"' Not Found!\");\r\n        else\r\n            return AppUtils.tagToDto(t);\r\n    }\r\n\r\n    @Override\r\n    public List<TagDTO> getAllTags() {\r\n\r\n        List<Tag> tags = tagRepository.findAll();\r\n\r\n        if (tags.isEmpty()) {\r\n            throw new ResourceNotFoundException(\"No Records Found..!\");\r\n        } else {\r\n            return AppUtils.tagsToDtos(tags);\r\n        }\r\n    }\r\n\r\n    public List<TagDTO> getAllTags(int pageNo, int pageSize, String sortBy, String sortOrder) {\r\n        List<TagDTO> TDto = new ArrayList<>();\r\n\r\n        Sort s = sortOrder.equalsIgnoreCase(\"asc\") ? Sort.by(sortBy).ascending() : Sort.by(sortBy).descending();\r\n\r\n        Pageable p = PageRequest.of(pageNo, pageSize, s);\r\n\r\n        Page<Tag> tags = tagRepository.findAll(p);\r\n        List<Tag> content = tags.getContent();\r\n\r\n        if (content.isEmpty()) {\r\n            throw new ResourceNotFoundException(\"No Records Found..!\");\r\n        } else {\r\n\r\n            for (Tag tag : content) {\r\n                TagDTO t = AppUtils.tagToDto(tag);\r\n                TDto.add(t);\r\n            }\r\n            return TDto;\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public List<TagDTO> getAllTagsSortBy(String field) {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public List<TagDTO> getAllTrashedTags() {\r\n        List<TagDTO> TDto = new ArrayList<>();\r\n\r\n        List<Tag> tags = tagRepository.findAllTrashed();\r\n\r\n        if (tags.isEmpty()) {\r\n            throw new ResourceNotFoundException(\"No Records Found..!\");\r\n        } else {\r\n            return AppUtils.tagsToDtos(tags);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public List<TagDTO> getAllInActiveTags() {\r\n\r\n        List<Tag> tags = tagRepository.findAllInActive();\r\n\r\n        if (tags.isEmpty()) {\r\n            throw new ResourceNotFoundException(\"No Records Found..!\");\r\n        } else {\r\n            return AppUtils.tagsToDtos(tags);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public TagDTO updateTagById(int id, TagDTO tagDTO) {\r\n\r\n//        t = tagRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(\"Tag with Id '\" + id + \"' not found!\"));\r\n\r\n        Tag t = tagRepository.findByIdNotTrashed(id);\r\n        if (t == null) {\r\n            throw new ResourceNotFoundException(\"Tag with Id '\" + id + \"' not found!\");\r\n        } else {\r\n            if (tagDTO.getTagName() != null) {\r\n                if (tagRepository.findByTagName(tagDTO.getTagName()) != null)\r\n                    throw new DuplicateEntryException(\"Tag name: \" + tagDTO.getTagName() + \" already exist..!\");\r\n                else\r\n                    t.setTagName(tagDTO.getTagName().toUpperCase());\r\n            }\r\n            t.setTagDescription(tagDTO.getTagDescription());\r\n            t.setActive(tagDTO.isActive());\r\n            t.setPosts(AppUtils.dtosToPosts(tagDTO.getPosts()));\r\n            tagRepository.save(t);\r\n        }\r\n        return AppUtils.tagToDto(t);\r\n    }\r\n\r\n    @Override\r\n    public TagDTO updateStatusById(int id, boolean status) {\r\n        return null;\r\n    }\r\n\r\n    @Override\r\n    public int deleteTagById(int id) {\r\n        Tag t = tagRepository.findByIdNotTrashed(id);\r\n        if (t != null) {\r\n            tagRepository.delete(t);\r\n            return 1;\r\n        } else\r\n            throw new ResourceNotFoundException(\"Tag with Id '\" + id + \"' not found!\");\r\n    }\r\n\r\n    @Override\r\n    public int trashTagById(int id) {\r\n        Tag t = tagRepository.findByIdNotTrashed(id);\r\n        if (t != null) {\r\n            t.setActive(Boolean.FALSE);\r\n            t.setDeleted(Boolean.TRUE);\r\n            t.setDeletedAt(new Date());\r\n            tagRepository.save(t);\r\n            return 1;\r\n        } else\r\n            throw new ResourceNotFoundException(\"Tag with Id '\" + id + \"' not found!\");\r\n    }\r\n\r\n    @Override\r\n    public int restoreTagById(int id) {\r\n        Tag t = tagRepository.findByIdTrashed(id);\r\n\r\n        if (t != null) {\r\n            t.setActive(Boolean.TRUE);\r\n            t.setDeleted(Boolean.FALSE);\r\n            t.setDeletedAt(null);\r\n            tagRepository.save(t);\r\n            return 1;\r\n        } else\r\n            throw new ResourceNotFoundException(\"Tag with Id '\" + id + \"' not found!\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vaistra-blog-app/src/main/java/com/vaistra/services/impl/TagServiceImpl.java b/vaistra-blog-app/src/main/java/com/vaistra/services/impl/TagServiceImpl.java
+--- a/vaistra-blog-app/src/main/java/com/vaistra/services/impl/TagServiceImpl.java	(revision 44312cb6ee6ed3d975cf85adb5352b8568636523)
++++ b/vaistra-blog-app/src/main/java/com/vaistra/services/impl/TagServiceImpl.java	(date 1693312147480)
+@@ -22,7 +22,11 @@
+ 
+ @Service
+ public class TagServiceImpl implements TagService {
++    public TagServiceImpl(AppUtils appUtils) {
++        this.appUtils = appUtils;
++    }
+ 
++    private final AppUtils appUtils;
+     @Autowired
+     TagRepository tagRepository;
+ 
+@@ -36,7 +40,7 @@
+         tagDTO.setTagName(tagDTO.getTagName().toUpperCase());
+         tagDTO.setTagDescription(tagDTO.getTagDescription());
+ 
+-        return AppUtils.tagToDto(tagRepository.save(AppUtils.dtoToTag(tagDTO)));
++        return appUtils.tagToDto(tagRepository.save(appUtils.dtoToTag(tagDTO)));
+     }
+ 
+     @Override
+@@ -46,7 +50,7 @@
+         if (t == null)
+             throw new ResourceNotFoundException("Tag with id '" + id + "' Not Found!");
+         else
+-            return AppUtils.tagToDto(t);
++            return appUtils.tagToDto(t);
+     }
+ 
+     @Override
+@@ -55,7 +59,7 @@
+         if (t == null)
+             throw new ResourceNotFoundException("Tag with id '" + id + "' Not Found!");
+         else
+-            return AppUtils.tagToDto(t);
++            return appUtils.tagToDto(t);
+     }
+ 
+     @Override
+@@ -65,7 +69,7 @@
+         if (t == null)
+             throw new ResourceNotFoundException("Category with id '" + id + "' Not Found!");
+         else
+-            return AppUtils.tagToDto(t);
++            return appUtils.tagToDto(t);
+     }
+ 
+     @Override
+@@ -76,7 +80,7 @@
+         if (tags.isEmpty()) {
+             throw new ResourceNotFoundException("No Records Found..!");
+         } else {
+-            return AppUtils.tagsToDtos(tags);
++            return appUtils.tagsToDtos(tags);
+         }
+     }
+ 
+@@ -95,7 +99,7 @@
+         } else {
+ 
+             for (Tag tag : content) {
+-                TagDTO t = AppUtils.tagToDto(tag);
++                TagDTO t = appUtils.tagToDto(tag);
+                 TDto.add(t);
+             }
+             return TDto;
+@@ -116,7 +120,7 @@
+         if (tags.isEmpty()) {
+             throw new ResourceNotFoundException("No Records Found..!");
+         } else {
+-            return AppUtils.tagsToDtos(tags);
++            return appUtils.tagsToDtos(tags);
+         }
+     }
+ 
+@@ -128,7 +132,7 @@
+         if (tags.isEmpty()) {
+             throw new ResourceNotFoundException("No Records Found..!");
+         } else {
+-            return AppUtils.tagsToDtos(tags);
++            return appUtils.tagsToDtos(tags);
+         }
+     }
+ 
+@@ -149,10 +153,10 @@
+             }
+             t.setTagDescription(tagDTO.getTagDescription());
+             t.setActive(tagDTO.isActive());
+-            t.setPosts(AppUtils.dtosToPosts(tagDTO.getPosts()));
++            t.setPosts(appUtils.dtosToPosts(tagDTO.getPosts()));
+             tagRepository.save(t);
+         }
+-        return AppUtils.tagToDto(t);
++        return appUtils.tagToDto(t);
+     }
+ 
+     @Override
