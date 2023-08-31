@@ -1,8 +1,6 @@
 package com.vaistra.services.impl;
 
-import com.vaistra.dto.CategoryDTO;
 import com.vaistra.dto.TagDTO;
-import com.vaistra.entities.Category;
 import com.vaistra.entities.Tag;
 import com.vaistra.exception.DuplicateEntryException;
 import com.vaistra.exception.ResourceNotFoundException;
@@ -23,8 +21,14 @@ import java.util.List;
 @Service
 public class TagServiceImpl implements TagService {
 
+
+    private final AppUtils appUtils;
     @Autowired
     TagRepository tagRepository;
+
+    public TagServiceImpl(AppUtils appUtils) {
+        this.appUtils = appUtils;
+    }
 
     @Override
     public TagDTO addTag(TagDTO tagDTO) {
@@ -34,9 +38,9 @@ public class TagServiceImpl implements TagService {
             throw new DuplicateEntryException("Tag name: " + t.getTagName() + " already exist..!");
 
         tagDTO.setTagName(tagDTO.getTagName().toUpperCase());
-        tagDTO.setTagDescription(tagDTO.getTagDescription());
 
-        return AppUtils.tagToDto(tagRepository.save(AppUtils.dtoToTag(tagDTO)));
+
+        return appUtils.tagToDto(tagRepository.save(appUtils.dtoToTag(tagDTO)));
     }
 
     @Override
@@ -46,7 +50,7 @@ public class TagServiceImpl implements TagService {
         if (t == null)
             throw new ResourceNotFoundException("Tag with id '" + id + "' Not Found!");
         else
-            return AppUtils.tagToDto(t);
+            return appUtils.tagToDto(t);
     }
 
     @Override
@@ -55,7 +59,7 @@ public class TagServiceImpl implements TagService {
         if (t == null)
             throw new ResourceNotFoundException("Tag with id '" + id + "' Not Found!");
         else
-            return AppUtils.tagToDto(t);
+            return appUtils.tagToDto(t);
     }
 
     @Override
@@ -65,7 +69,7 @@ public class TagServiceImpl implements TagService {
         if (t == null)
             throw new ResourceNotFoundException("Category with id '" + id + "' Not Found!");
         else
-            return AppUtils.tagToDto(t);
+            return appUtils.tagToDto(t);
     }
 
     @Override
@@ -76,7 +80,7 @@ public class TagServiceImpl implements TagService {
         if (tags.isEmpty()) {
             throw new ResourceNotFoundException("No Records Found..!");
         } else {
-            return AppUtils.tagsToDtos(tags);
+            return appUtils.tagsToDtos(tags);
         }
     }
 
@@ -95,7 +99,7 @@ public class TagServiceImpl implements TagService {
         } else {
 
             for (Tag tag : content) {
-                TagDTO t = AppUtils.tagToDto(tag);
+                TagDTO t = appUtils.tagToDto(tag);
                 TDto.add(t);
             }
             return TDto;
@@ -116,7 +120,7 @@ public class TagServiceImpl implements TagService {
         if (tags.isEmpty()) {
             throw new ResourceNotFoundException("No Records Found..!");
         } else {
-            return AppUtils.tagsToDtos(tags);
+            return appUtils.tagsToDtos(tags);
         }
     }
 
@@ -128,7 +132,7 @@ public class TagServiceImpl implements TagService {
         if (tags.isEmpty()) {
             throw new ResourceNotFoundException("No Records Found..!");
         } else {
-            return AppUtils.tagsToDtos(tags);
+            return appUtils.tagsToDtos(tags);
         }
     }
 
@@ -147,12 +151,11 @@ public class TagServiceImpl implements TagService {
                 else
                     t.setTagName(tagDTO.getTagName().toUpperCase());
             }
-            t.setTagDescription(tagDTO.getTagDescription());
-            t.setActive(tagDTO.isActive());
-            t.setPosts(AppUtils.dtosToPosts(tagDTO.getPosts()));
+
+
             tagRepository.save(t);
         }
-        return AppUtils.tagToDto(t);
+        return appUtils.tagToDto(t);
     }
 
     @Override
@@ -176,7 +179,7 @@ public class TagServiceImpl implements TagService {
         if (t != null) {
             t.setActive(Boolean.FALSE);
             t.setDeleted(Boolean.TRUE);
-            t.setDeletedAt(new Date());
+
             tagRepository.save(t);
             return 1;
         } else
@@ -190,7 +193,7 @@ public class TagServiceImpl implements TagService {
         if (t != null) {
             t.setActive(Boolean.TRUE);
             t.setDeleted(Boolean.FALSE);
-            t.setDeletedAt(null);
+
             tagRepository.save(t);
             return 1;
         } else

@@ -36,4 +36,6 @@ public interface TagRepository extends JpaRepository<Tag, Integer> {
     @Query(value = "SELECT * from tag t WHERE t.is_deleted = 0", nativeQuery = true)
     Page<Tag> findAll(Pageable pageable);
 
+    Boolean existsByTagName(String name);
+
 }

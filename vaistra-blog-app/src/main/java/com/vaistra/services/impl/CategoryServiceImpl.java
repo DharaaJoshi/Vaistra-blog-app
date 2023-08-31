@@ -15,12 +15,19 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
+
+    public CategoryServiceImpl(AppUtils appUtils) {
+        this.appUtils = appUtils;
+    }
+
+    private final AppUtils appUtils;
     @Autowired
     CategoryRepository categoryRepository;
 
@@ -35,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
         categoryDTO.setCategoryName(categoryDTO.getCategoryName().toUpperCase());
         categoryDTO.setCategoryDescription(categoryDTO.getCategoryDescription());
 
-        return AppUtils.categoryToDto(categoryRepository.save(AppUtils.dtoToCategory(categoryDTO)));
+        return appUtils.categoryToDto(categoryRepository.save(appUtils.dtoToCategory(categoryDTO)));
 
     }
 
@@ -45,7 +52,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (c == null)
             throw new ResourceNotFoundException("Tag with id '" + id + "' Not Found!");
         else
-            return AppUtils.categoryToDto(c);
+            return appUtils.categoryToDto(c);
     }
 
     @Override
@@ -55,7 +62,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (c == null)
             throw new ResourceNotFoundException("Category with id '" + id + "' Not Found!");
         else
-            return AppUtils.categoryToDto(c);
+            return appUtils.categoryToDto(c);
     }
 
     @Override
@@ -64,7 +71,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (c == null)
             throw new ResourceNotFoundException("Category with id '" + id + "' Not Found!");
         else
-            return AppUtils.categoryToDto(c);
+            return appUtils.categoryToDto(c);
     }
 
     @Override
@@ -76,7 +83,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (categories.isEmpty()) {
             throw new ResourceNotFoundException("No Records Found..!");
         } else {
-            return AppUtils.categoriesToDtos(categories);
+            return appUtils.categoriesToDtos(categories);
         }
     }
 
@@ -98,7 +105,7 @@ public class CategoryServiceImpl implements CategoryService {
         } else {
 
             for (Category category : content) {
-                CategoryDTO c = AppUtils.categoryToDto(category);
+                CategoryDTO c = appUtils.categoryToDto(category);
 //                System.out.println(c.toString());
                 CDto.add(c);
             }
@@ -120,7 +127,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (categories.isEmpty()) {
             throw new ResourceNotFoundException("No Records Found..!");
         } else {
-            return AppUtils.categoriesToDtos(categories);
+            return appUtils.categoriesToDtos(categories);
         }
     }
 
@@ -133,7 +140,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (categories.isEmpty()) {
             throw new ResourceNotFoundException("No Records Found..!");
         } else {
-            return AppUtils.categoriesToDtos(categories);
+            return appUtils.categoriesToDtos(categories);
         }
     }
 
@@ -151,9 +158,9 @@ public class CategoryServiceImpl implements CategoryService {
         }
         c.setCategoryDescription(categoryDTO.getCategoryDescription());
         c.setActive(categoryDTO.isActive());
-        c.setPosts(AppUtils.dtosToPosts(categoryDTO.getPosts()));
+
         categoryRepository.save(c);
-        return AppUtils.categoryToDto(c);
+        return appUtils.categoryToDto(c);
     }
 
     @Override
@@ -178,7 +185,7 @@ public class CategoryServiceImpl implements CategoryService {
         if (c != null) {
             c.setActive(Boolean.FALSE);
             c.setDeleted(Boolean.TRUE);
-            c.setDeletedAt(new Date());
+            c.setDeletedAt(LocalDateTime.now());
             categoryRepository.save(c);
             return 1;
         } else
